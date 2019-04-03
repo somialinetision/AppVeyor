@@ -1,8 +1,39 @@
-﻿@{
+﻿@model IEnumerable<App.Repo.EmployeeModel>
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="">
+
+    <h4>Employee list</h4>
+
+
+    <div class="card mt-md-4">
+        <div class="">
+            <table class="table table-sm table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Employee Name</th>
+                        <th>Employee Designation</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ foreach (var e in Model)
+                        {
+                            <tr>
+                                <td>@e.Id</td>
+                                <td>@e.Name</td>
+                                <td>@e.Designation</td>
+                                <th><a class="btn btn-sm btn-info">View</a></th>
+                            </tr>
+                        }
+                    }
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
 </div>

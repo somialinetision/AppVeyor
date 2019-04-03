@@ -10,9 +10,18 @@ namespace App.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly Repo.IEmployee employee;
+
+        public HomeController(Repo.IEmployee _employee)
+        {
+            employee = _employee;
+        }
+
         public IActionResult Index()
         {
-            return View();
+            var ViewModel = employee.FetchEmployeeList();
+            return View(ViewModel);
+
         }
 
         public IActionResult Privacy()
